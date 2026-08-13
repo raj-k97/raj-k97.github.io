@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Referral Invitation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .card {
+            max-width: 400px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #1976d2;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>You are invited!</h1>
+
+    <p>Join our application using this referral link.</p>
+
+    <p>
+        Referral Code:
+        <strong id="referralCode">Loading...</strong>
+    </p>
+
+    <a
+        id="openApp"
+        class="button"
+        href="#">
+        Open App
+    </a>
+
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    const referralCode = params.get('ref') || '';
+
+    document.getElementById('referralCode').textContent =
+        referralCode || 'Not available';
+
+    document.getElementById('openApp').href =
+        `https://raj-k97.github.io/invite?ref=${encodeURIComponent(referralCode)}`;
+</script>
+
+</body>
+</html>
